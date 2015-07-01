@@ -1,0 +1,20 @@
+box: golang
+
+build:
+  steps:
+    - setup-go-workspace
+    - golint
+    - script:
+        name: go get
+        code: |
+          go get -t ./...
+    - script:
+        name: go build
+        code: |
+          go build ./...
+    - script:
+        name: go test
+        code: |
+          go test ./...
+    - zhevron/goveralls:
+        token: $COVERALLS_TOKEN
