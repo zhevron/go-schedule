@@ -1,4 +1,3 @@
-// Package schedule implements task scheduling via goroutines.
 package schedule
 
 import (
